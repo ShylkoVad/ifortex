@@ -4,8 +4,8 @@ services:
     image: postgres:latest
     container_name: book_service
     environment:
-    - POSTGRES_USER=book_service
-    - POSTGRES_PASSWORD=book_service
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=1234
     - POSTGRES_DB=book_service
     ports:
     - '5432:5432'
