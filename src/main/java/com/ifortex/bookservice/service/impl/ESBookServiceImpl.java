@@ -2,7 +2,10 @@ package com.ifortex.bookservice.service.impl;
 
 import com.ifortex.bookservice.dto.SearchCriteria;
 import com.ifortex.bookservice.model.Book;
+import com.ifortex.bookservice.repository.BookRepository;
+import com.ifortex.bookservice.repository.CustomBookRepository;
 import com.ifortex.bookservice.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,15 +15,21 @@ import java.util.Map;
 @Service
 public class ESBookServiceImpl implements BookService {
 
+  @Autowired
+  private BookRepository bookRepository; // Основной репозиторий
+
+  @Autowired
+  private CustomBookRepository customBookRepository; // Кастомный репозиторий
+
   @Override
   public Map<String, Long> getBooks() {
     // will be implemented shortly
-    return Map.of();
+    return customBookRepository.countBooksByGenre();
   }
 
   @Override
   public List<Book> getAllByCriteria(SearchCriteria searchCriteria) {
     // will be implemented shortly
-    return List.of();
+    return customBookRepository.findBooksByCriteria(searchCriteria);
   }
 }
