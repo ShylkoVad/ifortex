@@ -2,14 +2,13 @@ package com.ifortex.bookservice.repository.impl;
 
 import com.ifortex.bookservice.dto.SearchCriteria;
 import com.ifortex.bookservice.model.Book;
-import com.ifortex.bookservice.repository.CustomBookRepository;
+import com.ifortex.bookservice.repository.BookRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import java.util.AbstractMap;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -18,7 +17,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Repository
-public class CustomBookRepositoryImpl implements CustomBookRepository {
+public class BookRepositoryImpl implements BookRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -67,7 +66,6 @@ public class CustomBookRepositoryImpl implements CustomBookRepository {
         // Обработка жанра
         if (searchCriteria.getGenre() != null && !searchCriteria.getGenre().isEmpty()) {
             List<String> genres = Arrays.asList(searchCriteria.getGenre().split(","));
-//            queryStr.append(" AND b.genres IN :genres");
             queryStr.append(" AND :genre MEMBER OF b.genres");
             hasCriteria = true;
         }

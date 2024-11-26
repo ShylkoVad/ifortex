@@ -1,7 +1,12 @@
 package com.ifortex.bookservice.repository;
 
+import com.ifortex.bookservice.dto.SearchCriteria;
 import com.ifortex.bookservice.model.Book;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository extends JpaRepository<Book, Long> {
+import java.util.List;
+import java.util.Map;
+
+public interface BookRepository {
+    Map<String, Long> countBooksByGenre();
+    List<Book> findBooksByCriteria(SearchCriteria searchCriteria);
 }
