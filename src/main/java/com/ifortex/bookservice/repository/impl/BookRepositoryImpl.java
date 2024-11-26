@@ -45,7 +45,6 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
 
-
     @Override
     public List<Book> findBooksByCriteria(SearchCriteria searchCriteria) {
         StringBuilder queryStr = new StringBuilder("SELECT b FROM Book b WHERE 1=1");

@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface MemberRepository {
     Member findMemberWithOldestRomanceBook();
+
     List<Member> findMembersRegisteredIn2023WithoutBooks();
 }

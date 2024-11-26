@@ -8,5 +8,6 @@ import java.util.Map;
 
 public interface BookRepository {
     Map<String, Long> countBooksByGenre();
+
     List<Book> findBooksByCriteria(SearchCriteria searchCriteria);
 }

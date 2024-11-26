@@ -15,18 +15,18 @@ import java.util.Map;
 public class ESBookServiceImpl implements BookService {
 
 
-  @Autowired
-  private BookRepository bookRepository; // Кастомный репозиторий
+    @Autowired
+    private BookRepository bookRepository; // Кастомный репозиторий
 
-  @Override
-  public Map<String, Long> getBooks() {
-    // will be implemented shortly
-    return bookRepository.countBooksByGenre();
-  }
+    @Override
+    public Map<String, Long> getBooks() {
+        // will be implemented shortly
+        return bookRepository.countBooksByGenre();
+    }
 
-  @Override
-  public List<Book> getAllByCriteria(SearchCriteria searchCriteria) {
-    // will be implemented shortly
-    return bookRepository.findBooksByCriteria(searchCriteria);
-  }
+    @Override
+    public List<Book> getAllByCriteria(SearchCriteria searchCriteria) {
+        // will be implemented shortly
+        return bookRepository.findBooksByCriteria(searchCriteria);
+    }
 }
