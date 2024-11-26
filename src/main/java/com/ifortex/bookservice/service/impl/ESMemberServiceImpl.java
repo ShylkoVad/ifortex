@@ -1,7 +1,9 @@
 package com.ifortex.bookservice.service.impl;
 
 import com.ifortex.bookservice.model.Member;
+import com.ifortex.bookservice.repository.MemberRepository;
 import com.ifortex.bookservice.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,15 +12,18 @@ import java.util.List;
 @Service
 public class ESMemberServiceImpl implements MemberService {
 
-  @Override
-  public Member findMember() {
-    // will be implemented shortly
-    return null;
-  }
+    @Autowired
+    private MemberRepository memberRepository;
 
-  @Override
-  public List<Member> findMembers() {
-    // will be implemented shortly
-    return List.of();
-  }
+    @Override
+    public Member findMember() {
+        // will be implemented shortly
+        return memberRepository.findMemberWithOldestRomanceBook();
+    }
+
+    @Override
+    public List<Member> findMembers() {
+        // will be implemented shortly
+        return memberRepository.findMembersRegisteredIn2023WithoutBooks();
+    }
 }
